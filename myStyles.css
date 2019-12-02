@@ -1,0 +1,16 @@
+.oddUl {
+  background-color: chocolate;
+}
+
+.evenUl {
+  background-color: darkslategrey;
+  color: #fff;
+}
+
+.squareMarksList {
+  list-style: square;
+}
+
+body {
+  background-color: gray;
+}

@@ -13,6 +13,16 @@ btnDont.addEventListener("click", giveAnimals);
 
 function giveAnimals() {
   myUlElements[0].innerHTML = "<li>Dog</li><li>Cat</li>";
+
+  for (let index = 0; index < myUlElements.length; index++) {
+    const element = myUlElements[index];
+
+    if (index % 2 == 0) {
+      element.classList.add("evenUl"); //work with the css class as if it was a list (add, remove, contains)
+    } else {
+      element.className = "oddUl"; //work with the css class as if it was a field (will replace the current class string with new string)
+    }
+  }
 }
 
 document.getElementById("secret").addEventListener("mouseover", function() {
@@ -22,3 +32,23 @@ document.getElementById("secret").addEventListener("mouseover", function() {
 document.getElementById("secret").addEventListener("mouseleave", function() {
   document.getElementsByTagName("h2")[0].innerHTML = "Secrets under this text";
 });
+
+var ticTacBoard = document.getElementById("ticTacBoard");
+
+ticTacBoard.style.width = "300px";
+ticTacBoard.style.height = "300px";
+
+for (let index = 0; index < ticTacBoard.children.length; index++) {
+  const element = ticTacBoard.children[index];
+
+  element.style.width = "100px";
+  element.style.height = "100px";
+
+  element.style.float = "left";
+
+  if (index % 2 == 0) {
+    element.style.backgroundColor = "white";
+  } else {
+    element.style.backgroundColor = "black";
+  }
+}
