@@ -35,20 +35,41 @@ document.getElementById("secret").addEventListener("mouseleave", function() {
 
 var ticTacBoard = document.getElementById("ticTacBoard");
 
-ticTacBoard.style.width = "300px";
-ticTacBoard.style.height = "300px";
+ticTacBoard.style.width = "800px";
+ticTacBoard.style.height = "800px";
 
-for (let index = 0; index < ticTacBoard.children.length; index++) {
-  const element = ticTacBoard.children[index];
+var togglePatten = true;
+
+for (let index = 0; index < 64; index++) {
+  const element = document.createElement("div");
 
   element.style.width = "100px";
   element.style.height = "100px";
 
   element.style.float = "left";
 
-  if (index % 2 == 0) {
-    element.style.backgroundColor = "white";
+  if (index % 8 == 0) {
+    togglePatten = !togglePatten;
+  }
+  if (togglePatten) {
+    element.classList.add("black");
   } else {
-    element.style.backgroundColor = "black";
+    element.classList.add("white");
+  }
+  togglePatten = !togglePatten;
+
+  element.addEventListener("click", () => playerClick(element));
+
+  ticTacBoard.appendChild(element);
+}
+
+var playerSymbol = "X";
+function playerClick(element) {
+  element.innerHTML = playerSymbol;
+
+  if (playerSymbol == "X") {
+    playerSymbol = "O";
+  } else {
+    playerSymbol = "X";
   }
 }
